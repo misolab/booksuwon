@@ -4,12 +4,11 @@
     <parent>
         <groupId>com.misolab</groupId>
         <artifactId>booksuwon</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${my.project.version}</version>
     </parent>
 
     <groupId>com.misolab.booksuwon</groupId>
     <artifactId>api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>api</name>
     <packaging>war</packaging>
     <description>API project for Misolab Web Template</description>
@@ -18,7 +17,7 @@
         <dependency>
             <groupId>com.misolab.booksuwon</groupId>
             <artifactId>webapp</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${my.project.version}</version>
         </dependency>
     </dependencies>
 

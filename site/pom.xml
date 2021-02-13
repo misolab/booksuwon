@@ -4,12 +4,11 @@
     <parent>
         <groupId>com.misolab</groupId>
         <artifactId>booksuwon</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${my.project.version}</version>
     </parent>
 
     <groupId>com.misolab.booksuwon</groupId>
     <artifactId>site</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>site</name>
     <packaging>war</packaging>
     <description>Site project for Misolab Web Template</description>
@@ -18,7 +17,7 @@
         <dependency>
             <groupId>com.misolab.booksuwon</groupId>
             <artifactId>webapp</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${my.project.version}</version>
         </dependency>
 
         <dependency>
