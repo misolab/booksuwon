@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -43,7 +44,7 @@ public class IndexController {
     }
 
     // 리스트
-    @GetMapping({"/", "/review"})
+    @GetMapping("/")
     public String index(Model model) {
         List<Review> list = IntStream.range(1, 50)
         .mapToObj(i -> Review.builder()
@@ -60,11 +61,36 @@ public class IndexController {
         return "index";
     }
 
+    @Getter
+    @Builder
+    static class Author {
+        String name;
+        String photo;
+        String description;
+    }
+
     //  보기
-    // @GetMapping("/{postId}")
-    // public String post(Model model, @PathVariable long postId) {
-    //     return "post";
-    // }
+    @GetMapping("/{reviewId}")
+    public String review(Model model, @PathVariable long reviewId) {
+        String text = "<p><img src=\"images/image_1.jpg\" class=\"img-fluid\"/></p>";
+        text += "<p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia</p>";
+
+        Review review = Review.builder()
+                        .title("A Loving Heart is the Truest Wisdom")
+                        .text(text)
+                        .updated("June 28, 2019")
+                        .build();
+
+        model.addAttribute("review", review);
+
+        Author author = Author.builder()
+                                .name("George Washington")
+                                .photo("images/person_1.jpg")
+                                .description("읽고 쓰고 생각하고")
+                                .build();
+        model.addAttribute("author", author);
+        return "review";
+    }
     
     //  작성창 (진입)
     // @GetMapping("/write")
